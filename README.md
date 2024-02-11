@@ -5,7 +5,9 @@
 
 ## 省流
 
+**推荐**
 直接在[Release]()(暂缺)界面下载最新的反和谐包,或者自行使用`down.py`脚本下载对应版本的custom文件,如果是IOS请手动修改`platform`为`ios`。
+**如果选择这个方法下面的旧方法就不需要尝试了**
 
 ## 原理
 
@@ -26,7 +28,11 @@
 2. python3
    1. mitmproxy
 
-## 使用方法
+## Android使用方法
+
+**注意，部分机型和模拟器可能无法正确的安装证书，如果遇到这种情况请使用上面的替换文件方法**
+
+**有任何问题先检查本地仓库有没有更新到最新版本，再使用搜索引擎排查，最后提issue**
 
 1. 修改`Android/data/com.megagame.crosscore*/files`下的`internation.txt`中的`0`为任意非零值，或者直接删除`internation_close.txt`文件。
 2. 从[Virtual-Hosts](https://github.com/x-falcon/Virtual-Hosts)仓库的[Release](https://github.com/x-falcon/Virtual-Hosts/releases)界面获取Virtual-Hosts的安装包，在模拟器/安卓设备上安装Virtual-Hosts。
