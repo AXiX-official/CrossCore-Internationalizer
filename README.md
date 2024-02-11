@@ -52,7 +52,9 @@
 
 ## iOS + Surge 使用方法
 
-iOS 如果有 Surge，无需额外使用电脑。直接在 Surge 的配置文件里添加如下配置，然后启用 MitM 功能并安装和信任好证书，重启游戏即可自动更新。
+先同Android一样修改`internation.txt`或者直接删除`internation_close.txt`文件。
+
+如果有 Surge，直接在 Surge 的配置文件里添加如下配置，然后启用 MitM 功能并安装和信任好证书，重启游戏即可自动更新。
 
 ```conf
 [MITM]
