@@ -7,6 +7,15 @@
 
 截止本仓库发布时，官方开关只剩一个和谐文件索引没有放出,正式服中的索引文件内容为`close`。本仓库通过重定向请求到本仓库的索引文件，从而能从正式服下载反和谐资源。
 
+## 优势
+
+使用官方一手资源，不会出现各种奇怪的问题，能反和谐最新的资源(只要官方有做)。
+没有任何封号风险，至少在下次大更新前。
+
+## 缺点
+
+如果你不擅长使用搜索引擎，那么我也没法提供更多的帮助，这个仓库可能不是那么适合你。
+
 ## 依赖
 
 1. [Virtual-Hosts](https://github.com/x-falcon/Virtual-Hosts)
@@ -28,5 +37,6 @@
 
 ## 最后
 
-如果有任何问题，欢迎提issue。
-如果你有更好的方法，欢迎提PR。
+如果有任何问题，欢迎提[issue](https://github.com/AXiX-official/CrossCore-Internationalizer/issues)。
+
+如果你有更好的方法，欢迎提[PR](https://github.com/AXiX-official/CrossCore-Internationalizer/pulls)。
