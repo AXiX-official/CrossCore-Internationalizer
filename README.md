@@ -52,7 +52,7 @@
 
 ## iOS + Surge 使用方法
 
-理论上其他支持 MitM 和 Rewrite 的*网络调试工具*，例如 Shadowrocet 也可以用同样的方法。可以根据原理自行探索操作方法。
+理论上其他支持 MitM 和 Rewrite 的*网络调试工具*，例如 Shadowrocket 也可以用同样的方法。可以根据原理自行探索操作方法。
 
 以下设置为一次性操作，只要游戏新版本不会覆盖 `internation.txt` 文件就无需在版本更新后重新进行。
 
