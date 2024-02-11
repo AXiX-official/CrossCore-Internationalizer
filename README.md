@@ -1,6 +1,6 @@
 # CrossCore-Internationalizer
 
-一个使用官方资源的帮助你访问交错战线(CrossCore)的国际服资源的非官方工具。
+一个使用官方资源帮助你访问交错战线(CrossCore)的国际服资源的非官方工具。
 
 ## 原理
 
