@@ -1,0 +1,37 @@
+﻿name: Check for file updates
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # 这将在每 4 小时运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download file
+      run: |
+        wget -O new_file.txt ${{ secrets.PRIVATE_URL }}
+
+    - name: Compare files
+      id: diff
+      run: |
+        diff new_file.txt ilist.txt > /dev/null 2>&1
+        if [ $? -eq 1 ]; then
+          echo "::set-output name=changed::true"
+        else
+          echo "::set-output name=changed::false"
+        fi
+
+    - name: Update file
+      if: steps.diff.outputs.changed == 'true'
+      run: |
+        mv new_file.txt ilist.txt
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "Update file"
+        git push
