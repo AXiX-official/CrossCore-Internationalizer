@@ -2,10 +2,10 @@ import requests
 from tqdm import tqdm
 
 platform = "android"
-# platform = "ios"
+#platform = "ios"
 
 # 基础 URL
-base_url = f"https://cdn.megagamelog.com/cross/release/{platform}/curr_1/custom/"
+base_url = f"https://cdn.megagamelog.com/cross/release/{platform}/curr_1/Custom/"
 
 # 读取文件
 with open("ilist.txt", "r") as file:
