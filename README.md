@@ -35,6 +35,18 @@
 5. 如果没安装过mitmproxy，运行`pip install mitmproxy`安装mitmproxy。然后将`/.mitmproxy / mitmproxy-ca-cert.cer`证书文件安装到模拟器/安卓设备上。
 6. 在本仓库的根目录下运行`mitmproxy -p 443 -s server.py`，然后在模拟器/安卓设备上启动交错战线，即可更新国际服资源(请勿在更新过程中关闭mitmproxy)。
 
+## iOS + Surge 使用方法
+
+iOS 如果有 Surge，无需额外使用电脑。直接在 Surge 的配置文件里添加如下配置，然后启用 MitM 功能并安装和信任好证书，重启游戏即可自动更新。
+
+```conf
+[MITM]
+hostname = cdn.megagamelog.com
+
+[URL Rewrite]
+^https://cdn.megagamelog.com/cross/release/ilist.txt$ https://raw.githubusercontent.com/AXiX-official/CrossCore-Internationalizer/main/ilist.txt 302
+```
+
 ## 最后
 
 如果有任何问题，欢迎提[issue](https://github.com/AXiX-official/CrossCore-Internationalizer/issues)。
