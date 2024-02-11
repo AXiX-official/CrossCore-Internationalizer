@@ -8,7 +8,7 @@ platform = "android"
 base_url = f"https://cdn.megagamelog.com/cross/release/{platform}/curr_1/Custom/"
 
 # 读取文件
-with open("ilist.txt", "r") as file:
+with open("ilist.txt", "r", encoding='utf-8-sig') as file:
     items = file.read().split(',')
 
 # 下载文件
