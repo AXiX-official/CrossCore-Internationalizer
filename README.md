@@ -52,17 +52,15 @@
 
 ## iOS + Surge 使用方法
 
-先同Android一样修改`internation.txt`或者直接删除`internation_close.txt`文件。
+理论上其他支持 MitM 和 Rewrite 的*网络调试工具*，例如 Shadowrocet 也可以用同样的方法。可以根据原理自行探索操作方法。
 
-如果有 Surge，直接在 Surge 的配置文件里添加如下配置，然后启用 MitM 功能并安装和信任好证书，重启游戏即可自动更新。
+以下设置为一次性操作，只要游戏新版本不会覆盖 `internation.txt` 文件就无需在版本更新后重新进行。
 
-```conf
-[MITM]
-hostname = cdn.megagamelog.com
-
-[URL Rewrite]
-^https://cdn.megagamelog.com/cross/release/ilist.txt$ https://raw.githubusercontent.com/AXiX-official/CrossCore-Internationalizer/main/ilist.txt 302
-```
+1. 在电脑上安装 iMazing（macOS 和 Windows 都支持），使用 iMazing 备份交错战线的数据，找到其中的 `Container/Documents/internation.txt`，将其中的~~那个零~~ 0 修改为 1。这部分详细操作请自行参考 iMazing 官方文档，**务必注意最后在 iOS 上的操作，确保选择“保留部分设置并继续”，并且“不传输任何内容”（不从 iCloud 恢复数据），以免 iOS 设备数据被重置**。
+2. 在 iOS 设备上安装 Surge，打开 MitM 和 Rewrite 功能。在 MitM 的配置界面里生成新证书，按提示操作安装和信任证书。
+3. 在 Surge 的 MitM 界面主机名里增加 `cdn.megagamelog.com`。
+4. 在 Surge 的 Rewrite 界面重定向里增加一条 HTTP 302 模式规则，正则表达式为 `^https://cdn.megagamelog.com/cross/release/ilist.txt$`，替代文本为 `https://raw.githubusercontent.com/AXiX-official/CrossCore-Internationalizer/main/ilist.txt`
+5. 强行关闭并重启游戏即可自动更新国际服资源。
 
 ## 最后
 
