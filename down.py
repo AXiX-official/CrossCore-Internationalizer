@@ -1,3 +1,4 @@
+import os
 import requests
 from tqdm import tqdm
 
@@ -17,5 +18,7 @@ for item in tqdm(items):
     response = requests.get(url)
     
     # 将文件保存到本地
-    with open(f"custom/{item}", 'wb') as f:
+    dir = "custom"
+    os.makedirs(dir, exist_ok=True)
+    with open(f"{dir}/{item}", 'wb') as f:
         f.write(response.content)
