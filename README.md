@@ -50,7 +50,8 @@
    其中192.168.*.*为电脑的局域网IP地址。
 4. 在Virtual-Hosts中添加hosts.txt文件，然后启用Virtual-Hosts。
 5. 如果没安装过mitmproxy，运行`pip install mitmproxy`安装mitmproxy。然后将`/.mitmproxy / mitmproxy-ca-cert.cer`证书文件安装到模拟器/安卓设备上。
-6. 在本仓库的根目录下运行`mitmproxy -p 443 -s server.py`，然后在模拟器/安卓设备上启动交错战线，即可更新国际服资源(请勿在更新过程中关闭mitmproxy)。
+6.如果你不能稳定访问github可以修改`server.py`从本地获取`ilist.txt`文件。
+7. 在本仓库的根目录下运行`mitmproxy -p 443 -s server.py`，然后在模拟器/安卓设备上启动交错战线，即可更新国际服资源(请勿在更新过程中关闭mitmproxy)。
 
 ## iOS + Surge 使用方法
 
