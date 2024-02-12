@@ -7,7 +7,7 @@
 
 **推荐**
 
-直接在[Release]()(暂缺)界面下载最新的反和谐包,或者自行使用`down.py`脚本下载对应版本的custom文件,如果是IOS请手动修改`platform`为`ios`。
+直接在[Release]()(暂缺)界面或者相关仓库[crosscore-custom](https://github.com/wu-vincent/crosscore-custom)下载最新的反和谐包,或者自行使用`down.py`脚本下载对应版本的custom文件,如果是IOS请手动修改`platform`为`ios`。
 
 **注意** 仍需修改`internation.txt`或者直接删除`internation_close.txt`文件。
 
@@ -63,6 +63,10 @@
 3. 在 Surge 的 MitM 界面主机名里增加 `cdn.megagamelog.com`。
 4. 在 Surge 的 Rewrite 界面重定向里增加一条 HTTP 302 模式规则，正则表达式为 `^https://cdn.megagamelog.com/cross/release/ilist.txt$`，替代文本为 `https://raw.githubusercontent.com/AXiX-official/CrossCore-Internationalizer/main/ilist.txt`
 5. 强行关闭并重启游戏即可自动更新国际服资源。
+
+## 相关仓库
+
+[crosscore-custom](https://github.com/wu-vincent/crosscore-custom)
 
 ## 最后
 
