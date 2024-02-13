@@ -7,7 +7,9 @@
 
 **推荐**
 
-直接在[Release]()(暂缺)界面或者相关仓库[crosscore-custom](https://github.com/wu-vincent/crosscore-custom)下载最新的反和谐包,或者自行使用`down.py`脚本下载对应版本的custom文件,如果是IOS请手动修改`platform`为`ios`。
+直接在[Releases]()(暂缺)界面或者[相关仓库](#相关仓库)的Releases中下载最新的反和谐包。
+
+或者自行使用`down.py`脚本下载对应版本的custom文件,如果是IOS请手动修改`platform`为`ios`。
 
 **注意** 仍需修改`internation.txt`或者直接删除`internation_close.txt`文件。
 
@@ -67,7 +69,13 @@
 
 ## 相关仓库
 
-[crosscore-custom](https://github.com/wu-vincent/crosscore-custom)
+[**crosscore-custom**](https://github.com/wu-vincent/crosscore-custom)
+
+The latest custom.zip for both Android and iOS
+
+[**Crosscore_Assets_curr_1**](https://github.com/ahalpha/Crosscore_Assets_curr_1)
+
+自动获取并收集交错战线 `curr_1` (国际版本) 官方通道的资源 (每小时) 。
 
 ## 最后
 
