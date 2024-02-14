@@ -17,12 +17,33 @@ jobs:
 
     - name: Download file
       run: |
-        wget -O new_file.txt ${{ secrets.PRIVATE_URL }}
+        wget -O new_ilist.txt ${{ secrets.PRIVATE_URL }}
+        wget -O new_release_ilist.txt https://cdn.megagamelog.com/cross/release/ilist.txt
 
     - name: Compare files
       id: diff
       run: |
-        diff new_file.txt ilist.txt > /dev/null 2>&1
+        diff new_ilist.txt ilist.txt > /dev/null 2>&1
+        if [ $? -eq 1 ]; then
+          echo "::set-output name=changed::true"
+        else
+          echo "::set-output name=changed::false"
+        fi
+
+    - name: Check release ilist
+      id: diff_release
+      run: |
+        diff new_release_ilist.txt r_ilist.txt > /dev/null 2>&1
+        if [ $? -eq 1 ]; then
+          echo "::set-output name=changed::true"
+        else
+          echo "::set-output name=changed::false"
+        fi
+
+    - name: Compare ilist
+      id: diff_new
+      run: |
+        diff new_ilist.txt new_release_ilist.txt > /dev/null 2>&1
         if [ $? -eq 1 ]; then
           echo "::set-output name=changed::true"
         else
@@ -37,3 +58,21 @@ jobs:
         git config --local user.name "GitHub Action"
         git commit -am "Update file"
         git push
+
+    - name: Create issue if release ilist changed
+      if: steps.diff_release.outputs.changed == 'true'
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const fs = require('fs');
+          const issueTitle = "Official release ilist.txt changed";
+          let issueBody = `**new_release_ilist.txt:**\n\n\`\`\`\n${fs.readFileSync('new_release_ilist.txt', 'utf8')}\n\`\`\``;
+          if (steps.diff_new.outputs.changed == 'true') {
+            issueBody += `\n\n**new_ilist.txt:**\n\n\`\`\`\n${fs.readFileSync('new_ilist.txt', 'utf8')}\n\`\`\``;
+          }
+          github.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody
+          });
