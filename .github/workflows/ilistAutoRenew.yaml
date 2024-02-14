@@ -23,31 +23,29 @@ jobs:
     - name: Compare files
       id: diff
       run: |
-        diff new_ilist.txt ilist.txt > /dev/null 2>&1
-        if [ $? -eq 1 ]; then
-          echo "::set-output name=changed::true"
-        else
+        if diff new_ilist.txt ilist.txt > /dev/null 2>&1; then
           echo "::set-output name=changed::false"
+        else
+          echo "::set-output name=changed::true"
         fi
 
     - name: Check release ilist
       id: diff_release
       run: |
-        diff new_release_ilist.txt r_ilist.txt > /dev/null 2>&1
-        if [ $? -eq 1 ]; then
-          echo "::set-output name=changed::true"
-        else
+        if diff new_release_ilist.txt r_ilist.txt > /dev/null 2>&1; then
           echo "::set-output name=changed::false"
+        else
+          echo "::set-output name=changed::true"
         fi
 
     - name: Compare ilist
       id: diff_new
+      if: steps.diff_release.outputs.changed == 'true'
       run: |
-        diff new_ilist.txt new_release_ilist.txt > /dev/null 2>&1
-        if [ $? -eq 1 ]; then
-          echo "::set-output name=changed::true"
-        else
+        if diff new_ilist.txt new_release_ilist.txt > /dev/null 2>&1; then
           echo "::set-output name=changed::false"
+        else
+          echo "::set-output name=changed::true"
         fi
 
     - name: Update file
